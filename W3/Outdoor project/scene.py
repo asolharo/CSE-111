@@ -1,5 +1,6 @@
 # Import the functions from the Draw 2-D library
 # so that they can be used in this program.
+from tkinter import NW, PhotoImage
 from turtle import width
 from draw2d import \
     draw_vertical_gradient, start_drawing, draw_line, draw_oval, draw_arc, \
@@ -46,7 +47,7 @@ def main():
 
     draw_ground(canvas, scene_width, scene_height)
     draw_lake(canvas)
-
+    add_wolf(canvas)
 
     x0 = -40
     for i in range(800):
@@ -218,6 +219,12 @@ def draw_stars(canvas):
     star_diameter=3
     star_y=random.randint(250, 500)
     draw_oval(canvas, star_center, star_y-10, star_center+star_diameter, star_y+star_diameter-10, outline="white", fill="white")
+
+def add_wolf(canvas):
+    img = PhotoImage(file='wolfs.png')
+    img = img.subsample(2)
+    canvas.create_image(480,300, anchor=NW, image=img)
+    canvas.img = img
 
 
 # Call the main function so that
