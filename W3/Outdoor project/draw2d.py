@@ -51,6 +51,7 @@ def start_drawing(title, width, height):
     # Create the root Tk object.
     root = Tk()
     root.geometry(f"{width}x{height}")
+    root.resizable(width=False, height=False)
 
     # Create a Frame object.
     frame = Frame()
