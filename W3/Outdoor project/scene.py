@@ -6,12 +6,15 @@ from draw2d import \
     draw_vertical_gradient, start_drawing, draw_line, draw_oval, draw_arc, \
     draw_rectangle, draw_polygon, draw_text, finish_drawing, draw_arc
 import random
+import time
 
 
 def main():
     # Width and height of the scene in pixels
     scene_width = 800
     scene_height = 500
+    xVelocity = 1
+    yVelocity = 1
 
     # Call the start_drawing function in the draw2d.py
     # library which will open a window and create a canvas.
@@ -204,10 +207,25 @@ def draw_clouds(canvas, level, diameter):
     x1 = random.randint(x0+10, x0+300)
 
     y1 = random.randint(level+10, level+50)
+
+    #Refresh_Sec = 0.01
     color_center = [255,250,250]
     color_edge = [245,245,245]
     # draw_circle_with_vert_grad(canvas, x0, level, x1+diameter, color_center, color_edge)
     draw_oval(canvas, x0, level, x1+diameter, y1+diameter, outline="grey", fill="grey")
+
+    #cloud = draw_oval(canvas, x0, level, x1+diameter, y1+diameter, outline="grey", fill="grey")
+
+    #while True:
+    #    canvas.move(cloud,x0,level)
+    #    canvas.update()
+    #    time.sleep(Refresh_Sec)
+    #    cloud_pos = canvas.coords(cloud)
+    #    al,bl,ar,br = cloud_pos
+    #    if al < abs(x0) or ar > 800-abs(x0):
+    #        x0 = -x0
+    #    if bl < abs(level) or br > 500-abs(level):
+    #        level = -level
 
 def draw_lake(canvas):
     x0 = 400
