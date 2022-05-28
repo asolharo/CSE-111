@@ -4,17 +4,17 @@ import random
 
 def main():
     print()
-    print(get_determiner(1) + " " + get_noun(1) + " " +
+    print(get_determiner(1) + " " + get_noun(1) + " " + get_prepositional_phrase(1) + " " +
           get_verb(1, "past") + " " + get_prepositional_phrase(1))
-    print(get_determiner(1) + " " + get_noun(1) + " " +
+    print(get_determiner(1) + " " + get_noun(1) + " " + get_prepositional_phrase(1) + " " +
           get_verb(1, "present") + " " + get_prepositional_phrase(1))
-    print(get_determiner(1) + " " + get_noun(1) + " " +
+    print(get_determiner(1) + " " + get_noun(1) + " " + get_prepositional_phrase(1) + " " +
           get_verb(1, "future") + " " + get_prepositional_phrase(1))
-    print(get_determiner(2) + " " + get_noun(2) + " " +
+    print(get_determiner(2) + " " + get_noun(2) + " " + get_prepositional_phrase(2) + " " +
           get_verb(2, "past") + " " + get_prepositional_phrase(2))
-    print(get_determiner(2) + " " + get_noun(2) + " " +
+    print(get_determiner(2) + " " + get_noun(2) + " " + get_prepositional_phrase(2) + " " +
           get_verb(2, "present") + " " + get_prepositional_phrase(2))
-    print(get_determiner(2) + " " + get_noun(2) + " " +
+    print(get_determiner(2) + " " + get_noun(2) + " " + get_prepositional_phrase(2) + " " +
           get_verb(2, "future") + " " + get_prepositional_phrase(2))
     print()
 
@@ -199,6 +199,13 @@ def get_preposition():
     return preposition
 
 
+def get_adjective():
+    adjectives = ["flaky", "smoggy", "powerful", "panicky", "selfish",
+                  "dusty", "truculent", "secret", "blushing", "elastic"]
+    adjective = random.choice(adjectives)
+    return adjective
+
+
 def get_prepositional_phrase(quantity):
     """Build and return a prepositional phrase composed of three
     words: a preposition, a determiner, and a noun by calling the
@@ -212,9 +219,10 @@ def get_prepositional_phrase(quantity):
     """
     preposition = get_preposition()
     determ = get_determiner(quantity)
+    adjective = get_adjective()
     noun = get_noun(quantity)
 
-    phrase = preposition + " " + determ + " " + noun
+    phrase = preposition + " " + determ + " " + adjective + " " + noun
 
     return phrase
 
